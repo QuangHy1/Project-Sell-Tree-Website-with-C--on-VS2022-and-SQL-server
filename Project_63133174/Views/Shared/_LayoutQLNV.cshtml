@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+
+</head>
+<body>
+
+    <!-- header section starts  -->
+
+    <header>
+
+        <div class="header-1">
+
+            <div class="share">
+                <span> Follow us : </span>
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div>
+
+            <div class="call">
+                <span> Fall us : </span>
+                <a href="#">+84-359109658</a>
+            </div>
+
+        </div>
+
+        <div class="header-2">
+
+            <a href="@Url.Action("Index", "NHANVIENs63133174")" class="logo"> <i class="fas fa-seedling"></i> My Garden</a>
+
+            
+        </div>
+
+        <div class="header-3" style="background: #eaff72;">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="@Url.Action("Index", "NHANVIENs63133174")">Quản lí Nhân viên</a>
+
+            </nav>
+
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="@Url.Action("Login", "Account_63133174")" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="content">
+        @RenderBody()
+    </div>
+
+    <div style="background-color: #eaff72;">
+        <section class="footer">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <h3>About us</h3>
+                    <p>Chúng tôi là một cộng đồng yêu cây, tận tụy chăm sóc và cung cấp những loại cây xanh tươi mới nhất cho không gian sống của bạn.  Sứ mệnh của chúng tôi là mang đến niềm vui và sự hài lòng cho khách hàng thông qua việc cung cấp những sản phẩm chất lượng và dịch vụ tận tâm, đồng hành cùng hành trình tạo nên không gian sống xanh mát và gần gũi với thiên nhiên.</p>
+                </div>
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="@Url.Action("Index", "User_63133174")">Trang chủ</a>
+                    <a href="@Url.Action("SanPham", "User_63133174")">Sản phẩm</a>
+                    <a href="@Url.Action("Login", "Account_63133174")">Đăng nhập/Đăng kí</a>
+                </div>
+                <div class="box">
+                    <h3>Follow us</h3>
+                    <a href="#" class="fab fa-facebook-f">  Facebook </a>
+                    <a href="#" class="fab fa-twitter"> Twitter</a>
+                    <a href="#" class="fab fa-instagram"> Instagram</a>
+                </div>
+            </div>
+
+            <h1 class="credit"> Created by <span> Le Quang Huy </span> | all rights reserved! </h1>
+        </section>
+    </div>
+    <!-- footer section ends -->
+    <!-- scroll top button  -->
+    <a href="#" class="scroll-top fas fa-angle-up"></a>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+﻿@model Project_63133174.Models.NHANVIEN
+
+@{
+    Layout = "~/Views/Shared/_LayoutQLNV.cshtml";
+    int i = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<style>
+    * {
+        font-size: 25px;
+    }
+
+    .form-field {
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+
+    .label {
+        float: left;
+        width: 150px;
+        font-weight: bold;
+    }
+
+    .value {
+        width: 50%;
+        margin-left: 160px; /* Adjust this value to create space between label and value */
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+    /* Các ActionLink với lớp có màu chữ trắng */
+    .white-text-link {
+        color: white;
+        /* Các thuộc tính khác của màu chữ, ví dụ như hover color, active color, etc. */
+    }
+</style>
+
+<body>
+    <div>
+        <h4>THÔNG TIN NHÂN VIÊN</h4>
+        <hr />
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.HoTen)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.HoTen)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.Email)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.MatKhau)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.Quyen)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.Quyen)
+            </div>
+        </div>
+
+       
+
+    </div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" />
+
+            </div>
+            <!-- Phần trở về -->
+            <div class="btn btn-default">
+                @Html.ActionLink("TRỞ VỀ TRANG TRƯỚC", "Index", null, new { @class = "white-text-link" })
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+﻿@model IEnumerable<Project_63133174.Models.SANPHAM>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+<style>
+   
+    .text-right {
+        text-align: center;
+        font-size: 30px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size:23px;
+    }
+
+    th, td {
+        padding: 8px; /* Điều chỉnh padding tùy theo nhu cầu */
+        text-align: left; /* Căn lề nội dung trong thẻ */
+        border: 1px solid #ddd; /* Đường viền cho thẻ */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Màu nền cho các thẻ tiêu đề */
+        font-weight: bold; /* In đậm chữ trong thẻ tiêu đề */
+    }
+</style>
+
+<body>
+    <!--Tìm kiếm-->
+    @using (Html.BeginForm("Index", "SANPHAMs63133174", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="display: flex; align-items: center; justify-content: center; font-size:15px;">
+            <div style="font-size:20px;">
+                <div style="display: flex; padding-bottom: 5px">
+                    Mã sản phẩm:
+                    <div style="padding-right: 26px"></div>
+                    <input type="text" name="maSP" value="@ViewBag.maSP" style="flex: 1; margin-left: 5px; border: 2px solid black " />
+                </div>
+
+                <div style="display: flex; padding-bottom: 5px">
+                    Tên sản phẩm:
+                    <div style="padding-right: 22px"></div>
+                    <input type="text" name="tenSP" value="@ViewBag.TenSP" style="flex: 1; margin-left: 5px; border: 2px solid black " />
+                </div>
+
+
+                <div style="display: flex; padding-bottom: 5px; ">
+                    Loại sản phẩm:
+                    <div style="padding-right: 22px; "></div>
+                    @Html.DropDownList("MaLSP", null, "Tất cả", htmlAttributes: new { @class = "form-control", style = "width: 169px; border: 2px solid black;" })
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Tìm kiếm" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 2px solid black " />
+                    <input type="button" name="Nhapmoi" value="Nhập mới" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 2px solid black" onclick="location.href='@Url.Action("Index", "SANPHAMs63133174/Index")'" />
+                    <input type="button" value="Thêm mới" onclick="location.href='@Url.Action("Create", "SANPHAMs63133174")'" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 2px solid black" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <table class="table">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XuatSu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOAISANPHAM.TenLSP)
+            </th>
+            <th>
+                Chức năng
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{i++;}
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XuatSu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(item.HinhAnh))
+                    {
+                        <!-- Hiển thị ảnh có trong file "Images" đã tạo -->
+                        <img src="~/Images/@item.HinhAnh" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+                    }
+                    else
+                    {
+                        <span>No Image</span> <!-- Hiện "No Image" nếu không tìm thấy đường dẫn hiện tại -->
+                    }
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAISANPHAM.TenLSP)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaSP }) |
+                    @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaSP }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaSP })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p class="text-right">
+        @Html.ActionLink("THÊM MỚI", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+</body>
+

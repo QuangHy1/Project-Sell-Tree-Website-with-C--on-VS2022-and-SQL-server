@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Project_63133174.Models.SANPHAM>
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_HeadFoot.cshtml";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+
+<body>
+    <section class="product" id="product">
+
+        <h1 class="heading"> Tất cả sản phẩm </h1>
+
+        <div class="box-container">
+            @foreach (var search in Model)
+            {
+                int count = 0;
+                if (count % 3 == 0)
+                {
+                    <div class="box">
+                        <span class="valid">Còn hàng</span>
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="fas fa-share"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                        </div>
+                        <img src="~/Images/@search.HinhAnh" alt="">
+                        <h3>@search.TenSP</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="quantity">
+                            <span> Số lượng : </span>
+                            <input type="number" min="1" max="100" value="1">
+                        </div>
+                        <div class="price">@search.DonGia</div>
+                        <div class="nav">
+                            <ul>
+                                <li><a href="#">Thêm vào giỏ hàng</a></li>
+                                <li>@Html.ActionLink("Xem chi tiết", "../User_63133174/Details", new { id = search.MaSP })</li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                }
+
+                count++;
+
+                if (count % 3 == 2 || count == Model.Count() - 1)
+                {
+                    <div>
+                        <!-- Kết thúc một dòng -->
+                    </div>
+                }
+            }
+
+            
+
+        </div>
+    </section>
+
+
+</body>
+

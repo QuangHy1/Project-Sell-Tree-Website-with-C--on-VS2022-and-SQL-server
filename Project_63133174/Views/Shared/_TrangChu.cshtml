@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+
+</head>
+<body>
+    @RenderBody()
+    <!-- header section starts  -->
+
+    <header>
+
+
+        <div class="header-1">
+
+            <div class="share">
+                <span> Follow us : </span>
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div>
+
+            <div class="call">
+                <span> Call us : </span>
+                <a href="#">+84-359109658</a>
+            </div>
+
+        </div>
+
+        <div class="header-2">
+
+            <a href="@Url.Action("Index", "User_63133174")" class="logo"> <i class="fas fa-seedling"></i> My Garden</a>
+
+            @using (@Html.BeginForm("TimKiem", "User_63133174", FormMethod.Get, new { @class = "search-bar-container" }))
+            {
+                <input type="text" id="search-bar" name="tensp" placeholder="Search here...">
+                <label for="search-bar" class="fas fa-search"></label>
+            }
+
+
+        </div>
+
+        <div class="header-3" style="background: #eaff72;">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="@Url.Action("Index", "User_63133174")">Trang chủ</a>
+                <a href="@Url.Action("SanPham", "User_63133174")">Sản phẩm</a>
+            </nav>
+
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="@Url.Action("Login", "Account_63133174")" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- header section ends -->
+    <!-- home section starts  -->
+    <div style="background-image: url(../Images/background2.jpg); min-height: 100%;">
+        <section class="home" id="home">
+
+            <div class="swiper-container home-slider">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="box">
+                            <img src="~/Images/caro2.jpg" style="width:100%; height:10%;" alt="">
+                            <div class="content">
+                                <span class="new">BIG EVENT</span>
+                                <h3>MỪNG LỄ NHÀ GIÁO 20/11</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+
+            </div>
+
+        </section>
+
+        <!-- home section ends -->
+        <!-- banner section starts  -->
+
+        <section class="banner-container">
+
+            <div class="banner">
+                <img src="~/Images/sentuphuong.jpg" alt="">
+                <div class="content">
+                    <span class="new">Hàng mới về</span>
+                    <h3>Sen Đá Tứ Phương</h3>
+                    <a href="@Url.Action("SanPham", "User_63133174")" class="btn">Tham Khảo Ngay</a>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="~/Images/senruby.jpg" alt="">
+                <div class="content">
+                    <span class="new">Hàng mới về</span>
+                    <h3>Sen Đá Ruby</h3>
+                    <a href="@Url.Action("SanPham", "User_63133174")" class="btn">Tham Khảo Ngay</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- banner section ends -->
+        <!-- category section starts  -->
+
+        <section class="category" id="category">
+
+            <h1 class="heading btn" style="border-radius: 12px; background-color: #eaff72; width: 30%; color:black; font-size:50px;">Dịch vụ</h1>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="~/Images/gift.jpg" alt="">
+                    <div class="content" style="background-color: #eaff72;">
+                        <h3>Tặng quà</h3>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="~/Images/lamcanh.jpg" alt="">
+                    <div class="content" style="background-color: #eaff72;">
+                        <h3>Làm cảnh</h3>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="~/Images/phongthuy.jpg" alt="">
+                    <div class="content" style="background-color: #eaff72;">
+                        <h3>Phong thủy</h3>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="~/Images/si.jpg" alt="">
+                    <div class="content" style="background-color: #eaff72;">
+                        <h3>Nhập sỉ</h3>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- category section ends -->
+        <!-- product section starts  -->
+
+        <section class="product" id="product">
+
+            <h1 class="heading btn" style="border-radius: 12px; background-color: #eaff72; width: 30%; color:black; font-size:50px;"> Sản phẩm</h1>
+
+            <div class="box-container">
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/senphatba.jpg" alt="">
+                    <h3>Sen đá Phật bà</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>100.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+
+                <!---->
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/sendolahong.jpg" alt="">
+                    <h3>Sen đá dola Hồng</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>300.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+                <!---->
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/sentim.jpg" alt="">
+                    <h3>Sen đá Tím</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>150.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+                <!---->
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/senmattrang.jpg" alt="">
+                    <h3>Sen đá mặt trăng</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>250.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+                <!---->
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/senmattroi.jpg" alt="">
+                    <h3>Sen đá mặt trời</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>110.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+                <!---->
+                <div class="box">
+                    <span class="discount">Hott</span>
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-share"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                    <img src="~/Images/senmongrong.jpg" alt="">
+                    <h3>Sen đá móng rồng</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="quantity">
+                        <span> Số lượng: </span>
+                        <input type="number" min="1" max="100" value="1">
+                    </div>
+                    <div class="price"><span>110.000 VNĐ</span></div>
+                    <a href="#" class="btn">Thêm vào giỏ</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- product section ends -->
+        <!-- .icons section starts  -->
+
+        <section class="icons-container" style="margin-top:30px">
+
+            <div class="icon">
+                <img src="product12.jpg" alt="">
+                <div class="content">
+                    <h3 style="font-size: 30px;">Miễn phí ship </h3>
+                    <p style="font-size: 20px;" >Miễn ship dưới 5km.</p>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="product12.jpg" alt="">
+                <div class="content">
+                    <h3>100% hoàn tiền</h3>
+                    <p>
+                        Bạn có thể hoàn tiền<br />
+                        trong vòng 30 ngày.
+                    </p>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="product13.jpg" alt="">
+                <div class="content">
+                    <h3>Thanh toán đa dạng</h3>
+                    <p>
+                        Thanh toán nhiều thẻ ngân<br />
+                        hàng khác nhau.
+                    </p>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="product14.jpg" alt="">
+                <div class="content">
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>
+                        Liên hệ với chúng tôi<br />
+                        bất kì lúc nào.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    
+
+    <!-- .icons section ends -->
+    <!-- deal section starts  -->
+
+ 
+
+    <!-- contact section ends -->
+    <!-- footer section starts  -->
+
+    <div style="background-color: #eaff72;">
+        <section class="footer" style="width:100%; height:100%;">
+            <div class="box-container">
+                <div class="box">
+                    <h3>About us</h3>
+                    <p>Chúng tôi là một cộng đồng yêu cây, tận tụy chăm sóc và cung cấp những loại cây xanh tươi mới nhất cho không gian sống của bạn.  Sứ mệnh của chúng tôi là mang đến niềm vui và sự hài lòng cho khách hàng thông qua việc cung cấp những sản phẩm chất lượng và dịch vụ tận tâm, đồng hành cùng hành trình tạo nên không gian sống xanh mát và gần gũi với thiên nhiên.</p>
+                </div>
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="@Url.Action("Index", "User_63133174")">Trang chủ</a>
+                    <a href="@Url.Action("SanPham", "User_63133174")">Sản phẩm</a>
+                    <a href="@Url.Action("Login", "Account_63133174")">Đăng nhập/Đăng kí</a>
+                </div>
+                <div class="box">
+                    <h3>Follow Us</h3>
+                    <a href="#" class="fab fa-facebook-f">  facebook </a>
+                    <a href="#" class="fab fa-twitter"> twitter</a>
+                    <a href="#" class="fab fa-instagram"> instagram</a>
+                    <a>CALL US: +84-359109658</a>
+                </div>
+            </div>
+
+
+            <h1 class="credit"> Created by <span> Le Quang Huy </span> | all rights reserved! </h1>
+
+        </section>
+
+        <!-- footer section ends -->
+        <!-- scroll top button  -->
+        <a href="#home" class="scroll-top fas fa-angle-up"></a>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <!-- custom js file link  -->
+        <script src="proj1.js"></script>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿@model Project_63133174.Models.SANPHAM
+
+@{
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HeadFoot.cshtml";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+
+
+
+
+    <div style="width: 75%; margin-top: 10px; margin-left: 195px;">
+        <dl class="dl-horizontal">
+            <dd>
+                <span style="font-size: 20px; text-transform: uppercase; color: #3A9943;">@Html.DisplayFor(model => model.TenSP)</span>
+                <hr style="margin-top: 0px; " />
+            </dd>
+            <dd style="display: flex">
+                <img src="~/Images/@Html.DisplayFor(model => model.HinhAnh)" width="550px" height="400px" />
+                <div style="margin-left: 20px; ">
+                    <b style="color: #3A9943; font-size: 40px">Chi tiết sản phẩm</b>
+                    <table style="font-size: 14px" border="1">
+                        <tr>
+                            <td colspan="2" style="padding-top: 10px; padding-bottom: 10px; font-size: 30px"><b>@Html.DisplayFor(model => model.DonGia)</b></td>
+                        </tr>
+                        <tr>
+                            <td>Xuất sứ:</td>
+                            <td>@Html.DisplayFor(model => model.XuatSu)</td>
+                        </tr>
+                        <tr>
+                            <td>Thời gian:</td>
+                            <td>@Html.DisplayFor(model => model.Nam)</td>
+                        </tr>
+                        <tr>
+                            <td>Đánh giá:</td>
+                            <td>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                </td>
+                        </tr>
+                    </table>
+                    <div style="background-color: #3A9943; display: flex; align-items: center; justify-content: center; height: 45px; margin-top:50px ">
+                        <a href="#" style="text-decoration: none; color: white; font-size: 25px; text-align: center ">MUA NGAY</a>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    </div>

@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Project_63133174.Models.KHACHHANG>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+<style>
+    .text-right {
+        text-align: center;
+        font-size: 30px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px; /* Điều chỉnh padding tùy theo nhu cầu */
+        text-align: left; /* Căn lề nội dung trong thẻ */
+        border: 1px solid #ddd; /* Đường viền cho thẻ */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Màu nền cho các thẻ tiêu đề */
+        font-weight: bold; /* In đậm chữ trong thẻ tiêu đề */
+    }
+</style>
+
+
+
+<body>
+    <!-- Tìm kiếm -->
+
+    @using (Html.BeginForm("Index", "KHACHHANGs63133174", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+    <div style="display: flex; align-items: center; justify-content: center; font-size:19px ">
+        <div>
+            <div style="display: flex; padding-bottom: 5px">
+                <label style="width: 120px;">Mã KH:</label>
+                <input type="text" name="maKH" value="@ViewBag.MaKH" style="flex: 1; margin-left: 5px; border: 2px solid black " />
+            </div>
+            <div style="display: flex; padding-bottom: 5px">
+                <label style="width: 120px;">Họ tên KH:</label>
+                <input type="text" name="hoTen" value="@ViewBag.HoTen" style="flex: 1; margin-left: 5px; border: 2px solid black" />
+            </div>
+            <div style="display: flex; padding-bottom: 5px">
+                <label style="width: 120px;">Số điện thoại:</label>
+                <input type="text" name="sdt" value="@ViewBag.SDT" style="flex: 1; margin-left: 5px; border: 2px solid black" />
+            </div>
+            <div style="display: flex; padding-bottom: 5px">
+                <label style="width: 120px;">Email:</label>
+                <input type="text" name="email" value="@ViewBag.Email" style="flex: 1; margin-left: 5px; border: 2px solid black" />
+            </div>
+            <div>
+                <input type="submit" name="submit" value="Tìm kiếm" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 1px solid black;cursor:pointer " />
+                <input type="button" name="Nhapmoi" value="Nhập mới" onclick="location.href='@Url.Action("Index", "KHACHHANGs63133174/Index")'" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 1px solid black; cursor: pointer " />
+                <input type="button" value="Thêm mới" onclick="location.href='@Url.Action("Create", "KHACHHANGs63133174")'" style="margin-left: 5px; width: 100px; background-color: blue; color: white; border: 1px solid black; cursor: pointer " />
+            </div>
+        </div>
+    </div>
+    }
+
+    <!-- Bảng thông tin -->
+    <table class="table" style="width:100%; font-size:20px">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </th>
+            <th>
+                Chức năng
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="margin:30px">
+                <td>
+                    @{i++;}
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatKhau)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaKH }) |
+                    @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaKH }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaKH })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p class="text-right">
+        @Html.ActionLink("THÊM MỚI", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+</body>
+

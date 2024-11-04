@@ -1,0 +1,153 @@
+﻿@model Project_63133174.Models.SANPHAM
+
+@{
+    Layout = "~/Views/Shared/_LayoutQLSP.cshtml";
+    int i = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<style>
+    * {
+        font-size: 25px;
+    }
+
+    .form-field {
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+
+    .label {
+        float: left;
+        width: 150px;
+        font-weight: bold;
+    }
+
+    .value {
+        width: 300px;
+        margin-left: 160px; /* Adjust this value to create space between label and value */
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+
+    /* Các ActionLink với lớp có màu chữ trắng */
+    .white-text-link {
+        color: white;
+        /* Các thuộc tính khác của màu chữ, ví dụ như hover color, active color, etc. */
+    }
+</style>
+
+
+
+<body>
+    <div>
+        <h4>THÔNG TIN SẢN PHẨM</h4>
+        <hr />
+
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.TenSP)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.TenSP)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.MaLSP)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.MaLSP)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.XuatSu)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.XuatSu)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.Nam)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.Nam)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.Gia)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.Gia)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.DonGia)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.DonGia)
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </div>
+            <div class="value" style="width:320px;">
+                @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                {
+                    string imageUrl = Url.Content("~/Images/" + Model.HinhAnh);
+                    <img src="@imageUrl" alt="Hình ảnh sản phẩm" style="max-width: 300px; max-height: 300px;" />
+                }
+                else
+                {
+                    <span>Không có ảnh</span>
+                }
+            </div>
+
+            
+            <!-- Phần sửa -->
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 btn btn-default">
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaSP }, new { @class = "white-text-link" })
+                </div>
+            </div>
+
+            <!-- Phần trở về -->
+            <div class="btn btn-default">
+                @Html.ActionLink("TRỞ VỀ TRANG TRƯỚC", "Index", null, new { @class = "white-text-link" })
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+    
+</body>
+</html>

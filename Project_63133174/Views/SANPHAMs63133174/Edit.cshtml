@@ -1,0 +1,179 @@
+﻿@model Project_63133174.Models.SANPHAM
+
+@{
+    Layout = "~/Views/Shared/_LayoutQLSP.cshtml";
+    int i = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán Sen Đá</title>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="proj1.css">
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+
+<style>
+    * {
+        font-size: 25px;
+    }
+
+    .form-control {
+        /* Your custom styles for form inputs */
+        /* Example styles: */
+        width: 50%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 3px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    /* Thiết lập cho phần giao diện thay thế */
+    .custom-file-upload {
+        display: inline-block;
+        padding: 8px 10px;
+        cursor: pointer;
+        background-color: black;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+        .custom-file-upload:hover {
+            background-color: #0056b3;
+        }
+
+    /* CSS cho phần hiển thị tên file */
+    #fileNameDisplay {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    /* Các ActionLink với lớp có màu chữ trắng */
+    .white-text-link {
+        color: white;
+        /* Các thuộc tính khác của màu chữ, ví dụ như hover color, active color, etc. */
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    function displayFileName(input) {
+        var fileNameDisplay = document.getElementById('fileNameDisplay');
+        if (input.files && input.files.length > 0) {
+            fileNameDisplay.innerHTML = input.files[0].name;
+        } else {
+            fileNameDisplay.innerHTML = '';
+        }
+    }
+</script>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>THÔNG TIN SẢN PHẨM</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaSP)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenSP, "Tên sản phẩm:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaLSP, "Mã loại sản phẩm:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaLSP", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaLSP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.XuatSu, "Xuất xứ:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.XuatSu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.XuatSu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nam, "Năm:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nam, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gia, "Giá:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DonGia, "Đơn giá:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HinhAnh, "Hình ảnh:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                {
+                    <label for="fileInput" class="custom-file-upload">
+                        Thay đổi file
+                        <input type="file" id="fileInput" name="fileInput" onchange="displayFileName(this)" />
+                    </label>
+                    <span id="fileNameDisplay">@Model.HinhAnh</span>
+                    <img src="~/Images/@Model.HinhAnh" alt="Current Image" style="max-width: 100px; max-height: 100px; margin-left: 10px;" />
+                }
+                else
+                {
+                    <label for="fileInput" class="custom-file-upload">
+                        Chọn file
+                        <input type="file" id="fileInput" name="fileInput" onchange="displayFileName(this)" />
+                    </label>
+                    <span id="fileNameDisplay"></span>
+                }
+                @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!-- Nút lưu -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+    }
+    <!-- Phần trở về -->
+    <div class="btn btn-default">
+        @Html.ActionLink("TRỞ VỀ TRANG TRƯỚC", "Index", null, new { @class = "white-text-link" })
+    </div>
+
+</body>
+</html>
